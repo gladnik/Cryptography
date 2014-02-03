@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const string cypertext[11]= {
+const string ciphertext[11]= {
 	"315c4eeaa8b5f8aaf9174145bf43e1784b8fa00dc71d885a804e5ee9fa40b16349c146fb778cdf2d3aff021dfff5b403b510d0d0455468aeb98622b137dae857553ccd8883a7bc37520e06e515d22c954eba5025b8cc57ee59418ce7dc6bc41556bdb36bbca3e8774301fbcaa3b83b220809560987815f65286764703de0f3d524400a19b159610b11ef3e", 
 	"234c02ecbbfbafa3ed18510abd11fa724fcda2018a1a8342cf064bbde548b12b07df44ba7191d9606ef4081ffde5ad46a5069d9f7f543bedb9c861bf29c7e205132eda9382b0bc2c5c4b45f919cf3a9f1cb74151f6d551f4480c82b2cb24cc5b028aa76eb7b4ab24171ab3cdadb8356f", 
 	"32510ba9a7b2bba9b8005d43a304b5714cc0bb0c8a34884dd91304b8ad40b62b07df44ba6e9d8a2368e51d04e0e7b207b70b9b8261112bacb6c866a232dfe257527dc29398f5f3251a0d47e503c66e935de81230b59b7afb5f41afa8d661cb", 
@@ -27,13 +27,13 @@ const string cypertext[11]= {
 	"466d06ece998b7a2fb1d464fed2ced7641ddaa3cc31c9941cf110abbf409ed39598005b3399ccfafb61d0315fca0a314be138a9f32503bedac8067f03adbf3575c3b8edc9ba7f537530541ab0f9f3cd04ff50d66f1d559ba520e89a2cb2a83", 
 	"32510ba9babebbbefd001547a810e67149caee11d945cd7fc81a05e9f85aac650e9052ba6a8cd8257bf14d13e6f0a803b54fde9e77472dbff89d71b57bddef121336cb85ccb8f3315f4b52e301d16e9f52f904"};
 
-//Since this is a stream cypher, we can decrypt characters one by one.
+//Since this is a stream cipher, we can decrypt characters one by one.
 unsigned char GetCtChar(int ctNumber, int pos)
 {
 	//Just converting some part of these strings to char.
 	string ct;
 	unsigned char ctChar;
-	ct = cypertext[ctNumber].substr(pos * 2, 2);
+	ct = ciphertext[ctNumber].substr(pos * 2, 2);
 	ctChar = (char)stoul(ct, nullptr, 16);
 	return ctChar;
 }
@@ -85,8 +85,8 @@ int main()
 {
 	string msg[11];
 	unsigned char msgChar, keyLetter;
-	//We can safely truncate all cypertexts to the length of the target message.
-	for (int pos = 0; pos < (int)(cypertext[10].length() / 2); pos++) //Then decrypt letter by letter.
+	//We can safely truncate all ciphertexts to the length of the target message.
+	for (int pos = 0; pos < (int)(ciphertext[10].length() / 2); pos++) //Then decrypt letter by letter.
 	{
 		keyLetter = GetKeyLetter(pos); //Get a letter of the key
 		for (int ctNumber = 0; ctNumber < 11; ctNumber++) 
