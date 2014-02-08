@@ -7,3 +7,6 @@ Stream ciphers and many-time key pad.
 
 ####Week 2
 AES Rijndael CBC and CTR modes implementation.
+
+####Week 3
+Sequential hashing MPEG-4 video file with SHA256.
