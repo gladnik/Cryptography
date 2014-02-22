@@ -10,3 +10,9 @@ AES Rijndael CBC and CTR modes implementation.
 
 ####Week 3
 Sequential hashing MPEG-4 video file with SHA256.
+
+####Week 4
+Padding oracle attack.
+
+####Week 5
+Computing discrete logarithm.
